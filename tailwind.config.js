@@ -6,6 +6,7 @@ module.exports = {
       whitelist: [],
     },
   },
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     container: {
       center: true,

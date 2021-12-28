@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
@@ -16,20 +16,23 @@
       <link rel="stylesheet" type="text/css" href="/static/css/prism-tomorrow.css">
     {% endif %}
   </head>
-  <body>
-    {% include "./partials/navbar.html" %}
-
-    {{ content | safe }}
-
-    {% include "./partials/footer.html" %}
-
-    <script src="/static/js/alpine.js"></script>
-
-    {% if path == "home" %}
-      <!-- Netlify Identity Widget -->
-      <!-- Needed only if you are using Netlify Identity feature -->
-      <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    {% endif %}
-
+  <body x-data="{'darkMode': false}">
+    <div :class="[darkMode ? 'dark' : '']">
+      <div class="dark:bg-gray-800">
+        {% include "./partials/navbar.html" %}
+        
+        {{ content | safe }}
+        
+        {% include "./partials/footer.html" %}
+        
+        <script src="/static/js/alpine.js"></script>
+        
+        {% if path == "home" %}
+          <!-- Netlify Identity Widget -->
+          <!-- Needed only if you are using Netlify Identity feature -->
+          <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+        {% endif %}
+      </div>
+    </div>
   </body>
 </html>

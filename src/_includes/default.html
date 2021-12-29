@@ -15,18 +15,44 @@
     {% if prism == true %}
       <link rel="stylesheet" type="text/css" href="/static/css/prism-tomorrow.css">
     {% endif %}
+    <script>
+      document.addEventListener('alpine:init', () => {
+        Alpine.data('darkness', () => ({
+            darkMode: false,
+            
+            trigger: {
+                ['@click']() {
+                    this.darkMode = JSON.parse(localStorage.getItem('darkMode'));
+                    this.darkMode = !this.darkMode
+                    localStorage.setItem('darkMode', JSON.stringify(this.darkMode));
+                },
+            },
+
+            locInit: {
+              ['x-init']() {
+                  this.darkMode = JSON.parse(localStorage.getItem('darkMode'));
+                  console.log(this.darkMode);
+                  ('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)));
+              },
+          },
+ 
+          }))
+        })
+        
+    
+  </script>
   </head>
-  <body x-data="{'darkMode': false}">
-    <div :class="[darkMode ? 'dark' : '']">
+  <body x-data="darkness()" x-bind="locInit">
+    <div :class="darkMode ? 'dark' : ''">
       <div class="dark:bg-gray-800">
         {% include "./partials/navbar.html" %}
-        
+
         {{ content | safe }}
-        
+
         {% include "./partials/footer.html" %}
-        
+
         <script src="/static/js/alpine.js"></script>
-        
+
         {% if path == "home" %}
           <!-- Netlify Identity Widget -->
           <!-- Needed only if you are using Netlify Identity feature -->
@@ -34,5 +60,6 @@
         {% endif %}
       </div>
     </div>
+   
   </body>
 </html>

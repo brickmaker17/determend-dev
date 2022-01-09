@@ -1,9 +1,8 @@
 ---
-title: This is my first post
-description: Capitalize on low hanging fruit to identify a ballpark value added
-  activity to beta test. Override the digital divide with additional
-  clickthroughs from DevOps.
-author: Surjith S M
+title: Install monitoring on Nighthawk R7000 router
+description: Steps on how I installed NETDATA on my R7000 router flashed with
+  DD-WRT firmware
+author: Luke B
 date: 2020-09-01
 tags:
   - left

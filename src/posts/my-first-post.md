@@ -9,51 +9,14 @@ tags:
   - center
   - right
 ---
-# This is a Heading h1
+# Install NETDATA and DD-WRT firmware
 
-## This is a Heading h2
+![Image of DD-WRT and Netdata](/static/img/screen-shot-2021-12-22-at-6.43.47-pm.png "DD-WRT and Netdata running")
 
-###### This is a Heading h6
+The reason I installed DD-WRT and Netdata was because the stock router was having issues with dropping wireless connections. 
 
-## Emphasis
+The first thing that I did was to install DD-WRT. How I did that is following the [DD-WRT](https://wiki.dd-wrt.com/wiki/index.php/Netgear_R7000) guide for my router.
 
-*This text will be italic*\
-*This will also be italic*
+After I had the new firmware installed. Everything seemed to be running a lot better but I wanted some monitoring so I could see what is going on at a glance. That is when I decided to try [Netdata](https://www.netdata.cloud/).
 
-**This text will be bold**\
-**This will also be bold**
-
-*You **can** combine them*
-
-## Lists
-
-### Unordered
-
-* Item 1
-* Item 2
-
-  * Item 2a
-  * Item 2b
-
-### Ordered
-
-1. Item 1
-2. Item 2
-3. Item 3
-
-   1. Item 3a
-   2. Item 3b
-
-## Links
-
-You may be using [Markdown Live Preview](https://markdownlivepreview.com/).
-
-## Blockquotes
-
-> Markdown is a lightweight markup language with plain-text-formatting syntax, created in 2004 by John Gruber with Aaron Swartz.
->
-> > Markdown is often used to format readme files, for writing messages in online discussion forums, and to create rich text using a plain text editor.
-
-## Inline code
-
-This web site is using `markedjs/marked`.
+To install Netdata I ssh to the router and then when I was at the terminal on the router I followed for the most part the [Netdata documentation](https://learn.netdata.cloud/docs/agent/packaging/installer/methods/offline) for offline mode. But some of the command I had to modify or adjust. I also had to go to the [Netdata api ](https://api.github.com/repos/netdata/netdata/releases/latest)and do a wget for the url I needed for my router.
